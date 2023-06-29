@@ -1,0 +1,10 @@
+---
+
+- name: sample playbook for child controllers
+  hosts:
+    - all
+  gather_facts: false
+  tasks:
+    - name: print out message
+      ansible.builtin.debug:
+        msg: "Hello world!"
