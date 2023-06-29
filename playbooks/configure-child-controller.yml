@@ -4,6 +4,8 @@
   hosts:
     - all
   gather_facts: false
+  vars_files:
+    - vars/child-controller-configuration.yml
   roles:
     - redhat_cop.controller_configuration.execution_environments
     - redhat_cop.controller_configuration.inventories
