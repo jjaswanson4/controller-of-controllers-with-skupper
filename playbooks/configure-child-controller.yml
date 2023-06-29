@@ -13,4 +13,4 @@
     - redhat_cop.controller_configuration.groups
     - redhat_cop.controller_configuration.credentials
     - redhat_cop.controller_configuration.projects
-    - redhat_cop.controller_configuration.templates
+    - redhat_cop.controller_configuration.job_templates
