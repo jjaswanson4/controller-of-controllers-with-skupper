@@ -92,7 +92,7 @@ controller_projects:
     scm_url: https://github.com/jjaswanson4/controller-of-controllers-with-skupper.git
 
 controller_templates:
-  - name: Test Device Connectivity
+  - name: Example Job
     organization: Default
     inventory: Edge Devices
     project: Controller of Controllers with Skupper
