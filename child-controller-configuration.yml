@@ -1,0 +1,99 @@
+---
+
+controller_execution_environments:
+  - name: Device Edge Workshops Execution Environment
+    image: quay.io/device-edge-workshops/provisioner-execution-environment:latest
+    pull: missing
+
+controller_inventories:
+  - name: Edge Devices
+    organization: Default
+    variables:
+      site: site1
+
+controller_hosts:
+  - name: switch1
+    inventory: Edge Devices
+    variables:
+      ansible_host: 10.15.108.3
+  - name: switch2
+    inventory: Edge Devices
+    variables:
+      ansible_host: 10.15.108.4
+  - name: firewall1
+    inventory: Edge Devices
+    variables:
+      ansible_host: 10.15.108.1
+  - name: firewall2
+    inventory: Edge Devices
+    variables:
+      ansible_host: 10.15.108.2
+  - name: dcn1
+    inventory: Edge Devices
+    variables:
+      ansible_host: 10.15.108.10
+  - name: dcn2
+    inventory: Edge Devices
+    variables:
+      ansible_host: 10.15.108.11
+  - name: acp-node1
+    inventory: Edge Devices
+    variables:
+      ansible_host: 10.15.108.100
+  - name: acp-node1
+    inventory: Edge Devices
+    variables:
+      ansible_host: 10.15.108.100
+  - name: acp-node2
+    inventory: Edge Devices
+    variables:
+      ansible_host: 10.15.108.101
+  - name: acp-node3
+    inventory: Edge Devices
+    variables:
+      ansible_host: 10.15.108.102
+
+controller_groups:
+- name: switches
+  inventory: Edge Devices
+  hosts:
+   - switch1
+   - switch2
+- name: firewalls
+  inventory: Edge Devices
+  hosts:
+   - firewall1
+   - firewall2
+- name: dcns
+  inventory: Edge Devices
+  hosts:
+   - dcn1
+   - dcn2
+- name: acp
+  inventory: Edge Devices
+  hosts:
+   - acp-node1
+   - acp-node2
+   - acp-node3
+
+controller_credentials:
+  - name: Device Credentials
+    organization: Default
+    credential_type: Machine
+    inputs:
+      username: admin
+      password: 'R3dh4t123!'
+
+controller_projects:
+  - name: Controller of Controllers with Skupper
+    organization: Default
+    scm_type: git
+    scm_branch: main
+    scm_url: https://github.com/jjaswanson4/controller-of-controllers-with-skupper.git
+
+controller_templates:
+  - name: Test Device Connectivity
+    organization: Default
+    inventory: Edge Devices
+    project: Controller of Controllers with Skupper
+    playbook: playbooks/sample-playbook.yml
