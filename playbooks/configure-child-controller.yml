@@ -4,6 +4,8 @@
   hosts:
     - all
   gather_facts: false
+  vars:
+    ansible_connection: local
   vars_files:
     - vars/child-controller-configuration.yml
   roles:
