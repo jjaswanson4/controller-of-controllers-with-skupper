@@ -1,0 +1,14 @@
+---
+
+- name: configure child controller
+  hosts:
+    - all
+  gather_facts: false
+  roles:
+    - redhat_cop.controller_configuration.execution_environments
+    - redhat_cop.controller_configuration.inventories
+    - redhat_cop.controller_configuration.hosts
+    - redhat_cop.controller_configuration.groups
+    - redhat_cop.controller_configuration.credentials
+    - redhat_cop.controller_configuration.projects
+    - redhat_cop.controller_configuration.templates
